@@ -41,28 +41,13 @@ var chart = d3.select('.chart')
 			.attr('transform','translate('+margin+','+margin+')')
 
 
-//External images
-// chart.append('image')
-// 		.attr('xlink:href','assets/images/samsung-logo.png')
-// 		.attr('width',50)
-// 		.attr('height',50)
-// 		.attr('y',spacing-30)
-// 		.attr('x',-55)
-
-// chart.append('image')
-// 		.attr('xlink:href','assets/images/apple-logo.png')
-// 		.attr('width',20)
-// 		.attr('height',20)
-// 		.attr('y',spacing+10)
-// 		.attr('x',-55)
-
 //Bar groups
 var barGroups = chart.selectAll('g')
 					.data(companyList)
 					.enter()
 					.append('g')
 					.attr('transform',(d,i)=>'translate(0,'+i*spacing+')')
-
+//Company Logo
 barGroups.append('g')
 		.append('image')
 		.attr('xlink:href',d=>'assets/images/'+d.logo+'-logo.png')
@@ -70,7 +55,7 @@ barGroups.append('g')
 		.attr('height',20)
 		.attr('scale',0.5)
 		.attr('y',spacing-20)
-		.attr('x',-45)
+		.attr('x',-38)
 //Bars
 barGroups.append('rect')
 		.attr('class','data-bar')
@@ -87,7 +72,7 @@ barGroups.append('rect')
 //Title
 chart.append('text')
 	.attr('class','title')
-	.text('Mobile Phone Units Sold Worldwide')
+	.text('Mobile Phone Units Sold Worldwide (2017)')
 	.attr('text-anchor','middle')
 	.attr('x',width/2)
 	.attr('y',-20)
@@ -105,14 +90,6 @@ chart.append('text')
 		.attr('y',height+40)
 		.text('Units Sold (million)')
 
-//Comapny names
-// barGroups.append('text')
-// 		.text(d=>d.name)
-// 		.attr('y',spacing-10)
-// 		.attr('alignment-baseline','middle')
-// 		.attr('x',-55)
-// 		.attr('font-size',12)
-// 		.attr('text-anchor','left')
 
 
 //Tooltips
